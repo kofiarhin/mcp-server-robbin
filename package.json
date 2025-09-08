@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest --watch",
+    "test:watch": "jest --watch",
     "start": "node  server/server.js",
     "client": "npm run dev --prefix client",
     "server": "nodemon server/server.js",

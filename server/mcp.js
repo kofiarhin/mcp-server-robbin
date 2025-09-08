@@ -29,7 +29,7 @@ class McpServer {
   }
 
   listen(port, cb) {
-    this.app.listen(port, cb);
+    return this.app.listen(port, cb);
   }
 }
 

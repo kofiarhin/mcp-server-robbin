@@ -1,25 +1,19 @@
 // server.js
 const { McpServer } = require("./mcp");
+const { getProducts, recommendProduct, generateContent } = require("./tools");
 
 const server = new McpServer();
 
-server.registerTool("getProducts", () => [
-  { id: 1, name: "Guitar" },
-  { id: 2, name: "Piano" },
-]);
+server.registerTool("getProducts", getProducts);
+server.registerTool("recommendProduct", recommendProduct);
+server.registerTool("generateContent", generateContent);
 
-server.registerTool("recommendProduct", () => ({
-  id: 1,
-  name: "Guitar",
-  reason: "Great for beginners!",
-}));
+// Only start listening when this file is run directly: `node server.js`
+if (require.main === module) {
+  const port = process.env.PORT || 5000;
+  server.listen(port, () => {
+    console.log(`MCP server is running on port ${port}`);
+  });
+}
 
-server.registerTool(
-  "generateContent",
-  () => "Here is some generated content for you!"
-);
-
-const port = process.env.PORT || 5000;
-server.listen(port, () => {
-  console.log(`MCP server is running on port ${port}`);
-});
+module.exports = server;
