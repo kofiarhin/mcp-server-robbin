@@ -1,3 +1,5 @@
+const baseAi = require("./baseAi");
+
 const getProducts = () => [
   { id: 1, name: "Guitar" },
   { id: 2, name: "Piano" },
@@ -9,6 +11,9 @@ const recommendProduct = () => ({
   reason: "Great for beginners!",
 });
 
-const generateContent = () => "Here is some generated content for you!adafdaf";
+const generateContent = async () => {
+  const data = await baseAi();
+  return data;
+};
 
 module.exports = { getProducts, recommendProduct, generateContent };

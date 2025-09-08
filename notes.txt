@@ -1,2 +1,1 @@
-frontend: https://stripe-payment-gray.vercel.app/
-backend: https://stripe-payment-ibm6.onrender.com/
+backend: https://mcp-server-robbin.onrender.com/tools/recommendProduct
