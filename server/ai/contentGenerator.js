@@ -1,5 +1,5 @@
 const { Groq } = require("groq-sdk");
-const { contentGeneratorPrompt } = require("./ai/prompts");
+const { contentGeneratorPrompt } = require("./prompts");
 
 // Configurable model
 const MODEL_NAME = process.env.GROQ_MODEL || "llama-3.1-8b-instant";
@@ -11,7 +11,9 @@ const MODEL_NAME = process.env.GROQ_MODEL || "llama-3.1-8b-instant";
  * @param {string} inputs.chosen_color_scheme - e.g., "Complementary"
  * @returns {Promise<Object>} Parsed JSON object from Groq
  */
-const baseAi = async (inputs = {}) => {
+
+// content generator
+const contentGenerator = async (inputs = {}) => {
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
     throw new Error("Missing GROQ_API_KEY environment variable");
@@ -77,4 +79,4 @@ chosen_color_scheme: ${chosen_color_scheme}
   }
 };
 
-module.exports = baseAi;
+module.exports = contentGenerator;

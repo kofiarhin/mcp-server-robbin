@@ -1,4 +1,5 @@
 const baseAi = require("./baseAi");
+const contentGenerator = require("./ai/contentGenerator");
 
 const getProducts = () => [
   { id: 1, name: "Guitar" },
@@ -12,7 +13,7 @@ const recommendProduct = () => ({
 });
 
 const generateContent = async () => {
-  const data = await baseAi();
+  const data = await contentGenerator();
   return data;
 };
 
